@@ -1,6 +1,6 @@
 {
   "name": "@modular-rest/create-server",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "main": "index.js",
   "repository": "https://github.com/modular-rest/create-modular-rest.git",
   "author": "Navid Shad <navidshad72@gmail.com>",
@@ -8,6 +8,7 @@
   "bin": {
     "create-modular-rest": "./bin/create-modular-rest.js"
   },
+  "private": false,
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
