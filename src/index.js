@@ -14,7 +14,9 @@ require('dotenv').config({
 const app = createRest({
 	port: 8080,
 	modulesPath: path.join(__dirname, 'modules'),
-	staticPath: path.join(__dirname, 'assets'),
+	staticPath: {
+		path.join(__dirname, 'assets'),
+	},
 	mongo: {
 		mongoBaseAddress: 'mongodb://localhost:27017',
 		dbPrefix: 'mrest_',
