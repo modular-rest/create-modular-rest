@@ -26,7 +26,7 @@ fs.rmSync(binDir, {
 });
 
 // Rename files
-const renameFiles = ["env"];
+const renameFiles = ["env", "gitignore"];
 renameFiles.forEach((file) => {
   fs.renameSync(path.join(projectDir, file), path.join(projectDir, "." + file));
 });
@@ -35,7 +35,11 @@ const projectPackageJson = require(path.join(projectDir, "package.json"));
 
 // Update the project's package.json with the new project name
 projectPackageJson.name = projectName;
+projectPackageJson.private = true;
 delete projectPackageJson.bin;
+delete projectPackageJson.author;
+delete projectPackageJson.repository;
+delete projectPackageJson.license;
 
 fs.writeFileSync(
   path.join(projectDir, "package.json"),
