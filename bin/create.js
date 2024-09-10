@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const fs = require("fs");
 const path = require("path");
 
@@ -13,14 +15,9 @@ fs.mkdirSync(projectDir, {
 
 // Copy the template directory to the project directory.
 const templateDir = path.resolve(__dirname, "..");
-fs.cpSync(
-  templateDir,
-  projectDir,
-  {
-    recursive: true,
-  },
-  (err) => {}
-);
+fs.cpSync(templateDir, projectDir, {
+  recursive: true,
+});
 
 // Remove bin dir from project
 const binDir = path.resolve(projectDir, "bin");
@@ -45,5 +42,5 @@ fs.writeFileSync(
   JSON.stringify(projectPackageJson, null, 2)
 );
 
-console.log("Success! Your new project is ready.");
+console.log(`Success! Your new Modular Server is ready!`);
 console.log(`Created ${projectName} at ${projectDir}`);

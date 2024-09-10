@@ -1,12 +1,13 @@
 {
   "name": "@modular-rest/create-server",
-  "version": "0.3.0",
+  "version": "0.3.7",
   "main": "index.js",
   "repository": "https://github.com/modular-rest/create-modular-rest.git",
   "author": "Navid Shad <navidshad72@gmail.com>",
   "license": "MIT",
   "bin": {
-    "create-modular-rest": "./bin/create-modular-rest.js"
+    "create-modular-rest": "bin/create.js",
+    "create-server": "bin/create.js"
   },
   "private": false,
   "publishConfig": {
@@ -18,10 +19,10 @@
     "dev": "nodemon -q src/index.js"
   },
   "dependencies": {
-    "@modular-rest/server": "^1.8.0",
-    "dotenv": "^16.3.1"
+    "@modular-rest/server": "^1.11.5",
+    "dotenv": "^16.4.5"
   },
   "devDependencies": {
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.4.1"
   }
 }
