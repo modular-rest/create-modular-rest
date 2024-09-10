@@ -35,6 +35,7 @@ const projectPackageJson = require(path.join(projectDir, "package.json"));
 
 // Update the project's package.json with the new project name
 projectPackageJson.name = projectName;
+projectPackageJson.version = "0.0.0";
 projectPackageJson.private = true;
 delete projectPackageJson.bin;
 delete projectPackageJson.author;

@@ -1,6 +1,6 @@
 {
   "name": "@modular-rest/create-server",
-  "version": "0.3.9",
+  "version": "0.3.10",
   "main": "index.js",
   "repository": "https://github.com/modular-rest/create-modular-rest.git",
   "author": "Navid Shad <navidshad72@gmail.com>",
