@@ -2,50 +2,66 @@
 
 const fs = require("fs");
 const path = require("path");
+const { input, select } = require("@inquirer/prompts");
 
-// The first argument will be the project name.
-const projectName = process.argv[2];
+async function startInquirer() {
+  const projectName =
+    process.argv[2] ||
+    (await input({
+      message: "What is your project name?",
+    }));
 
-// Create a project directory with the project name.
-const currentDir = process.cwd();
-const projectDir = path.resolve(currentDir, projectName);
-fs.mkdirSync(projectDir, {
-  recursive: true,
-});
+  const template = await select({
+    message: "Which template would you like to use?",
+    choices: [
+      { name: "JavaScript", value: "js" },
+      { name: "TypeScript", value: "ts" },
+    ],
+  });
 
-// Copy the template directory to the project directory.
-const templateDir = path.resolve(__dirname, "..");
-fs.cpSync(templateDir, projectDir, {
-  recursive: true,
-});
+  return { projectName, template };
+}
 
-// Remove bin dir from project
-const binDir = path.resolve(projectDir, "bin");
-fs.rmSync(binDir, {
-  recursive: true,
-});
+function initialize({ projectName, template }) {
+  // Create a project directory with the project name.
+  const currentDir = process.cwd();
+  const projectDir = path.resolve(currentDir, projectName);
+  fs.mkdirSync(projectDir, {
+    recursive: true,
+  });
 
-// Rename files
-const renameFiles = ["env", "gitignore"];
-renameFiles.forEach((file) => {
-  fs.renameSync(path.join(projectDir, file), path.join(projectDir, "." + file));
-});
+  // Copy the template directory to the project directory.
+  const templateDir = path.resolve(__dirname, "..", "templates", template);
+  fs.cpSync(templateDir, projectDir, {
+    recursive: true,
+  });
 
-const projectPackageJson = require(path.join(projectDir, "package.json"));
+  // Rename files
+  const renameFiles = ["env", "gitignore"];
+  renameFiles.forEach((file) => {
+    fs.renameSync(
+      path.join(projectDir, file),
+      path.join(projectDir, "." + file)
+    );
+  });
 
-// Update the project's package.json with the new project name
-projectPackageJson.name = projectName;
-projectPackageJson.version = "0.0.0";
-projectPackageJson.private = true;
-delete projectPackageJson.bin;
-delete projectPackageJson.author;
-delete projectPackageJson.repository;
-delete projectPackageJson.license;
+  const projectPackageJson = require(path.join(projectDir, "package.json"));
 
-fs.writeFileSync(
-  path.join(projectDir, "package.json"),
-  JSON.stringify(projectPackageJson, null, 2)
-);
+  // Update the project's package.json with the new project name
+  projectPackageJson.name = projectName;
+  projectPackageJson.version = "0.0.0";
 
-console.log(`Success! Your new Modular Server is ready!`);
-console.log(`Created ${projectName} at ${projectDir}`);
+  fs.writeFileSync(
+    path.join(projectDir, "package.json"),
+    JSON.stringify(projectPackageJson, null, 2)
+  );
+
+  return { projectName, projectDir };
+}
+
+startInquirer()
+  .then(initialize)
+  .then(({ projectName, projectDir }) => {
+    console.log(`Success! Your new Modular Server is ready!`);
+    console.log(`Created ${projectName} at ${projectDir}`);
+  });

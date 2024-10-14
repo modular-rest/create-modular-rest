@@ -1,11 +1,11 @@
-const {
+import {
   CollectionDefinition,
   Schema,
   Schemas,
   Permission,
   PermissionTypes,
   DatabaseTrigger,
-} = require("@modular-rest/server");
+} from "@modular-rest/server";
 
 module.exports = [
   new CollectionDefinition({
@@ -27,8 +27,8 @@ module.exports = [
         read: true,
       }),
     ],
-    trigger: [
-      new DatabaseTrigger("insert", (query, _queryResult) => {
+    triggers: [
+      new DatabaseTrigger("insert-one", ({ query, queryResult }) => {
         console.log("inserted", query);
       }),
     ],

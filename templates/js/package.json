@@ -1,0 +1,20 @@
+{
+  "name": "app-name",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": false,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon -q src/index.js"
+  },
+  "dependencies": {
+    "@modular-rest/server": "^1.11.11",
+    "dotenv": "^16.4.5",
+    "koa-router": "^13.0.1"
+  }
+}

@@ -1,6 +1,6 @@
 {
   "name": "@modular-rest/create-server",
-  "version": "0.3.11",
+  "version": "0.4.1",
   "main": "index.js",
   "repository": "https://github.com/modular-rest/create-modular-rest.git",
   "author": "Navid Shad <navidshad72@gmail.com>",
@@ -19,10 +19,8 @@
     "dev": "nodemon -q src/index.js"
   },
   "dependencies": {
+    "@inquirer/prompts": "^7.0.0",
     "@modular-rest/server": "^1.11.6",
     "dotenv": "^16.4.5"
-  },
-  "devDependencies": {
-    "nodemon": "^3.4.1"
   }
 }
