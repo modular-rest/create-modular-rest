@@ -24,8 +24,8 @@ const app = createRest({
     // do something before init with the koa app
   },
   adminUser: {
-    email: process.env.ADMIN_EMAIL || "admin@email.strict",
-    password: process.env.ADMIN_PASSWORD || "fill-here",
+    email: process.env.ADMIN_EMAIL || "",
+    password: process.env.ADMIN_PASSWORD || "",
   },
   permissionGroups: permissionGroups,
   verificationCodeGeneratorMethod: function () {
