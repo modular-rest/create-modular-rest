@@ -13,8 +13,8 @@ const app = createRest({
   port: 8080,
   modulesPath: path.join(__dirname, "..", "dist", "modules"),
   staticPath: {
-    rootPath: path.join(__dirname, "assets"),
-    rootDir: path.join(__dirname, "public"),
+    path: path.join(__dirname, "assets"),
+    actualPath: path.join(__dirname, "public"),
   },
   mongo: {
     mongoBaseAddress: "mongodb://localhost:27017",
@@ -24,8 +24,8 @@ const app = createRest({
     // do something before init with the koa app
   },
   adminUser: {
-    email: process.env.ADMIN_EMAIL || "",
-    password: process.env.ADMIN_PASSWORD || "",
+    email: process.env.ADMIN_EMAIL || "admin@changeme.com",
+    password: process.env.ADMIN_PASSWORD || "changeme123",
   },
   permissionGroups: permissionGroups,
   verificationCodeGeneratorMethod: function () {

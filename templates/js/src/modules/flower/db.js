@@ -1,29 +1,28 @@
 const {
-  CollectionDefinition,
+  defineCollection,
   Schema,
-  Schemas,
+  schemas,
   Permission,
-  PermissionTypes,
   DatabaseTrigger,
 } = require("@modular-rest/server");
 
 module.exports = [
-  new CollectionDefinition({
-    db: "flower",
+  defineCollection({
+    database: "flower",
     collection: "wildflowers",
     schema: new Schema({
       name: String,
       description: String,
-      image: Schemas.file,
+      image: schemas.file,
     }),
     permissions: [
       new Permission({
-        type: "god_access",
+        accessType: "god_access",
         read: true,
         write: true,
       }),
       new Permission({
-        type: "anonymous_access",
+        accessType: "anonymous_access",
         read: true,
       }),
     ],

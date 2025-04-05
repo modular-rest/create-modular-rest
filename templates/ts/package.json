@@ -10,12 +10,12 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@modular-rest/server": "^1.11.11",
-    "@types/koa-router": "^7.4.8",
+    "@modular-rest/server": "^1.13.0",
     "dotenv": "^16.4.5",
-    "koa-router": "^13.0.1"
+    "koa-router": "^7.4.0"
   },
   "devDependencies": {
+    "@types/koa-router": "^7.4.8",
     "@types/node": "^22.7.5",
     "ts-node": "^10.9.2",
     "typescript": "^5.6.3"

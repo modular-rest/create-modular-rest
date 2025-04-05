@@ -4,13 +4,13 @@ module.exports.permissionGroups = [
   new PermissionGroup({
     title: "anonymous",
     isAnonymous: true,
-    validPermissionTypes: ["anonymous_access"],
+    allowedAccessTypes: ["anonymous_access"],
   }),
 
   new PermissionGroup({
     title: "end-user",
     isDefault: true,
-    validPermissionTypes: [
+    allowedAccessTypes: [
       "user_access",
       "anonymous_access",
       "upload_file_access",
@@ -20,7 +20,7 @@ module.exports.permissionGroups = [
 
   new PermissionGroup({
     title: "administrator",
-    validPermissionTypes: [
+    allowedAccessTypes: [
       "user_access",
       "anonymous_access",
       "upload_file_access",
