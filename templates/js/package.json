@@ -13,7 +13,7 @@
     "dev": "nodemon -q src/index.js"
   },
   "dependencies": {
-    "@modular-rest/server": "^1.16.1",
+    "@modular-rest/server": "^1.17.0",
     "dotenv": "^16.4.5",
     "koa-router": "^13.0.1"
   },
