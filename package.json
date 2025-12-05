@@ -1,6 +1,6 @@
 {
   "name": "@modular-rest/create-server",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "main": "index.js",
   "repository": "https://github.com/modular-rest/create-modular-rest.git",
   "author": "Navid Shad <navidshad72@gmail.com>",
@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@inquirer/prompts": "^7.0.0",
-    "@modular-rest/server": "^1.11.6",
+    "@modular-rest/server": "^1.11.15",
     "dotenv": "^16.4.5"
   }
 }
